@@ -1,0 +1,18 @@
+<form>
+    <div class="container">
+      <h1>Data Binding Demo</h1>
+      <h2>Register</h2>
+      <p>Please fill in this form to create an account.</p>
+      <hr>
+  
+      <label><b>User Name</b></label>
+      <input type="text" placeholder="Enter User Name" name="userName" id="userName" [(ngModel)]="NewUser" required>
+  
+      <label style="color: blue;"><b>Your defualt user Name : {{DefaultUser}}</b></label>
+      <p>
+      <label style="color: chocolate;"><b>Your New user Name : {{NewUser}}</b></label>
+
+      <button type="submit" class="registerbtn" (click) = "onRegisterClick()"  [disabled] = "NewUser == ''" >Register</button>
+    </div>
+      
+  </form>
