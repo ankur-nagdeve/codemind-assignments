@@ -1,0 +1,19 @@
+<table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">Course Name</th>
+        <th scope="col">Author</th>
+        <th scope="col">Duration</th>
+        <th scope="col">Fees</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor = "let course of Courses">
+        <th scope="row">{{course.CourseName}}</th>
+        <td>{{course.AutthorName}}</td>
+        <td>{{course.Duration}}</td>
+        <td> Rs {{course.Fees}}</td>
+      </tr>
+     
+    </tbody>
+  </table>

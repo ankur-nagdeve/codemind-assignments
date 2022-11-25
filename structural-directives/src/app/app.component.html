@@ -1,0 +1,46 @@
+<div id="main">
+    <div class="container">
+        <div class="alert alert-light" role="alert">
+            <strong>Structural Directives Assignment</strong>
+          </div>
+
+      <div class="accordion" id="faq">
+        <div class="card">
+          <div class="card-header" id="ngifDemoHeader">
+            <a href="#" class="btn btn-header-link" data-toggle="collapse" data-target="#ngifDemoContent" aria-expanded="true"
+              aria-controls="ngifDemoContent">Ng-If Demo</a>
+          </div>
+
+          <div id="ngifDemoContent" class="collapse show" aria-labelledby="ngifDemoHeader" data-parent="#faq">
+            <div class="card-body">
+              <app-ngif></app-ngif>
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-header" id="ngForHeader">
+            <a href="#" class="btn btn-header-link collapsed" data-toggle="collapse" data-target="#ngForBody"
+              aria-expanded="true" aria-controls="ngForBody">Ng-For Demo</a>
+          </div>
+
+          <div id="ngForBody" class="collapse" aria-labelledby="ngForHeader" data-parent="#faq">
+            <div class="card-body">
+              <app-ngfor></app-ngfor>
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-header" id="ngSwitchHeader">
+            <a href="#" class="btn btn-header-link collapsed" data-toggle="collapse" data-target="#ngSwitchBody"
+              aria-expanded="true" aria-controls="ngSwitchBody">Ng Switch Demo</a>
+          </div>
+
+          <div id="ngSwitchBody" class="collapse" aria-labelledby="ngSwitchHeader" data-parent="#faq">
+            <div class="card-body">
+              <app-ngswitch></app-ngswitch>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
