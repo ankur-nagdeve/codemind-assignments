@@ -1,0 +1,119 @@
+<div class="container">
+    <div class=" text-center mt-5 ">
+
+        <h1>Directives Assignment</h1>
+
+
+    </div>
+
+
+    <div class="row ">
+        <div class="col-lg-6 mx-auto">
+            <div class="card mt-2 mx-auto p-4 bg-light">
+                <h2>Attribute Directive</h2>
+                <div class="card-body bg-light">
+
+                    <div class="container">
+                        <form id="contact-form" role="form">
+
+
+
+                            <div class="controls">
+
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label for="form_name">Top IT Companies of India</label>
+                                            <ul>
+                                                <li *ngFor = "let company of companies; let i = index" [ngClass]="{ 
+                                                    'highlight':i%2 == 0 
+                                                 }">
+                                                  {{i+1}} - {{company}}
+
+                                                </li>
+                                            </ul>
+
+                                        </div>
+                                    </div>                                    
+                                </div>                                                              
+
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+
+            </div>
+            <!-- /.8 -->
+
+        </div>
+        <div class="col-lg-6 mx-auto">
+            <div class="card mt-2 mx-auto p-4 bg-light">
+                <h2>Custom Directive</h2>
+                <div class="card-body bg-light">
+
+                    <div class="container">
+                        <form id="contact-form" role="form">
+
+
+
+                            <div class="controls">
+
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label for="form_password">Password *</label>
+                                            <input id="form_password" type="text" name="txtPwd" [(ngModel)]="password" class="form-control"
+                                                placeholder="Enter Password" required="required">
+
+                                        </div>
+                                    </div>                                    
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label for="form_confirmPassword">Confirm Password *</label>
+                                            <input id="form_confirmPassword" type="text"   name="txtConfirmPwd" [(ngModel)]="confirmPassword" class="form-control"
+                                                placeholder="Please enter Confirm Password" required="required">
+
+                                        </div>
+                                    </div>                                    
+                                </div>
+                                <br/>
+                                <div class="row">                                                                            
+                                    
+                                    <div class="form-group">
+                                        <div class="col-md-12" *ngIf = "password == confirmPassword  && password != ''"  appSuccessHighlighter>
+
+                                            <h5 >Password matched.!</h5>
+                                           
+                                         </div>
+     
+                                         <div class="col-md-12" *ngIf = "password != confirmPassword || password == '' "  appAlertHighlighter>
+     
+                                             <h5>Password does not matched.!</h5>                                       
+                                          </div>
+
+                                    </div>
+                                    
+                                    
+
+                                     <!-- <div class="alert alert-success">
+                                        This is a success alert—check it out!
+                                      </div> -->
+
+                                </div>
+
+
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+        <!-- /.row-->
+
+    </div>
+</div>
