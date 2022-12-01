@@ -1,0 +1,36 @@
+<div class="card">
+    <h4 class="text-center mb-4">Child Component (Add Employee Details)</h4>
+    <p style="color: blue ;text-align:left">Added employee object is passed to table in parent  component via
+        @output decorator</p>
+    <form class="form-card">
+        <div class="row justify-content-between text-left">
+            <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Employee
+                    name<span class="text-danger"> *</span></label>
+                <input type="text" id="fname" name="fname" placeholder="Enter employee name" #employeeName>
+            </div>
+            <div class="form-group col-sm-6 flex-column d-flex">
+                <label class="form-control-label px-3">Department<span class="text-danger"> *</span></label> <input
+                    type="text" id="lname" name="lname" placeholder="Enter Department" #department>
+            </div>
+        </div>
+        <div class="row justify-content-between text-left">
+            <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Job
+                    title<span class="text-danger"> *</span></label> <input type="text" id="job" name="job"
+                    placeholder="" #jobTitle> </div>
+
+            <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Phone
+                    number<span class="text-danger"> *</span></label>
+                <input type="text" id="mob" name="mob" placeholder="" #phoneNumber>
+            </div>
+        </div>
+
+
+        <div class="row justify-content-end">
+            <div class="col-sm-4"></div>
+            <div class="form-group col-sm-4 "> <button type="button"
+                    (click)="SaveEmployee(employeeName.value,department.value,jobTitle.value,phoneNumber.value)" class="btn-block btn-primary ">Add To
+                    Parent</button> </div>
+            <div class="col-sm-4"></div>
+        </div>
+    </form>
+</div>

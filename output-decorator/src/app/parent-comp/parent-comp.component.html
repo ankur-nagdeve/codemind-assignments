@@ -1,0 +1,36 @@
+<div class="container-fluid px-1 py-5 mx-auto">    
+    <div class="row d-flex justify-content-center">
+        <div class="col-xl-7 col-lg-8 col-md-9 col-11 text-center">
+            <h3 style="color: blue">Decorators Assignment</h3>
+            <app-child-comp (EmployeeSavedFromChildEvent) = "generateParentList($event)" ></app-child-comp>
+            <div class="card">
+                <h4 class="text-center mb-4">Parent Component (Employee List)</h4>                
+                <form class="form-card">
+                    <div class="row justify-content-between text-left">
+                        <table class="table">
+                            <thead class="thead-dark">
+                              <tr>
+                                <th scope="col">Employee Name</th>
+                                <th scope="col">Department</th>
+                                <th scope="col">Job title</th>
+                                <th scope="col">Phone number</th>
+                              </tr>
+                            </thead> 
+                            <tbody>
+                              <tr *ngFor = "let emp of parentEmployeeList">
+                                <th scope="row">{{emp.employeeName}}</th>
+                                <td>{{emp.department}}</td>
+                                <td>{{emp.jobTitle}}</td>
+                                <td>{{emp.phoneNumber}}</td>
+                              </tr>                  
+                            </tbody>
+                          </table>
+                          
+                    </div>                    
+                </form>
+            </div>
+            
+
+        </div>
+    </div>
+</div>
