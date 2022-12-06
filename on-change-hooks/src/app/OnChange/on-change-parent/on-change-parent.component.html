@@ -1,0 +1,37 @@
+
+<form>
+    <div class="form-group">
+        <div class="row">
+            <div class="col-sm-2"></div>
+            <div class="col-sm-6">
+                <h3>On Change demo</h3>
+            </div>
+            <div class="col-sm-4"></div>            
+        </div>
+        <div class="row" style="padding-bottom: 10px;"></div>
+        <div class="row">
+            <div class="col-sm-6">
+                <label>Please place your order here -</label>
+            </div>
+            <div class="col-sm-6">
+                <select class="form-select" aria-label="Default select example" (change)="setfoodValue($event.target.value)">
+                    <option value="none" selected>Food Items:</option>
+                    <option value="Burger">Burger</option>
+                    <option value="Pizza">Pizza</option>
+                    <option value="Nachos">Nachos</option>
+                    <option value="Donuts">Donuts</option>
+                  </select>
+            </div>
+        </div>                
+        
+    </div>   
+    <div class="row">
+        <div class="col-sm-6">
+            <label>Enter your name: </label>
+        </div>
+        <div class="col-sm-6">
+            <input type="text" (keypress)="setName($event.target.value)">
+        </div>
+    </div>  
+    <app-on-change-child [selectedFood] = "foodItem" [personName] = "foodieName"></app-on-change-child>        
+</form>
