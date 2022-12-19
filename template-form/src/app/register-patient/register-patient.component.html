@@ -1,0 +1,135 @@
+<section class="h-100 bg-dark">
+  <div class="container py-5 h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col">
+        <div class="card card-registration my-4">
+          <div class="row g-0">
+            <div class="col-xl-6 d-none d-xl-block">
+              <img
+                src="/assets/female-doctor-working-desk-17727276.jpg"
+                alt="Sample photo" class="img-fluid"
+                style="border-top-left-radius: .25rem; border-bottom-left-radius: .25rem;" />
+            </div>
+            <div class="col-xl-6">
+
+              <div class="card-body p-md-5 text-black" *ngIf="!formSubmitted">
+                <form (ngSubmit)="submitPatientDetails(enrollmentForm)" #enrollmentForm = "ngForm">
+
+                  <h3 class="mb-5 text-uppercase">Patient Registration</h3>
+
+                  <div class="row">
+                    <div class="col-md-6 mb-4">
+                      <div class="form-outline">                        
+                        <input type="text"  class="form-control form-control-lg" name ="firstName" ngModel required/>
+                        <label class="form-label" for="form3Example1m">First name</label>
+                        
+                      </div>
+                    </div>
+                    <div class="col-md-6 mb-4">
+                      <div class="form-outline">
+                        <input type="text" id="form3Example1n" class="form-control form-control-lg" name ="lastName" ngModel required/>
+                        <label class="form-label" for="form3Example1n">Last name</label>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="d-md-flex justify-content-start align-items-center mb-4 py-2">
+
+                    <h6 class="mb-0 me-4">Gender: </h6>
+
+                    <div class="form-check form-check-inline mb-0 me-4" *ngFor = "let gender of genders; let i = index">
+                      <input class="form-check-input" type="radio" name="patientGender" id="{{gender}}"
+                        value="{{gender}}"  [(ngModel)] = "patientGender" ngModel/>
+                      <label class="form-check-label" for="{{gender}}">{{gender}}</label>
+                    </div>                    
+
+                  </div>
+                  <div ngModelGroup = "AddressGroup">
+                  <div class="row">                    
+                    <div class="col-md-6 mb-4">                      
+                      <div class="form-outline">
+                        <input type="text" name="address1" class="form-control form-control-lg" ngModel required/>
+                        <label class="form-label" for="address1">Address Line 1</label>
+                      </div>
+                    </div>
+                    <div class="col-md-6 mb-4">
+                      <div class="form-outline">
+                        <input type="text" class="form-control form-control-lg" name = "address2" ngModel />
+                        <label class="form-label" for="address2">Address Line 2</label>
+                      </div>
+                    </div>
+                  </div>
+                  </div>
+
+
+                    <div class="row">
+                      <div class="col-md-6 form-outline mb-4">
+                        <input type="text" name="emailId" class="form-control form-control-lg" ngModel email #emailId="ngModel" />
+                        <label class="form-label" for="emailId">Email ID</label>
+                        <p *ngIf ="!emailId.valid && emailId.touched"><small class="text-danger" >Email ID must be valid.</small></p>
+                      </div>
+                    
+                      <div class="col-md-6 form-outline mb-4">
+                        <input type="text" name="mobileNumber" class="form-control form-control-lg" ngModel #mobileNumber="ngModel"  appPhoneNumeberValidator/>
+                        <label class="form-label" for="mobileNumber">Mobile Number</label>
+                        <p *ngIf="!mobileNumber.valid && (mobileNumber.dirty ||numVal.touched)">
+                          <small *ngIf="mobileNumber.errors.invalid" class="text-danger">{{mobileNumber.errors.errorText}}</small>
+                        </p>
+                      </div>
+                    </div>
+                 
+
+                  <div class="row">
+                    <div class="col-md-6 form-outline mb-4">
+                      <div class="form-group">
+                        <input type="date" id="admisssionDate" name="admisssionDate" class="form-control form-control-lg" min ="{{currentDate | date:'yyyy-MM-dd'}}" ngModel>
+                      </div>
+                      <label class="form-label" for="admisssionDate">Admisssion Date</label>                      
+                    </div>
+
+
+                    <div class="col-md-6 form-outline mb-4">
+
+                      <select class="form-select form-control-lg" name = "roomType" [ngModel] = "roomType">
+                        <option value="default">Select Room Type</option>
+                        <option value="Delux">Delux</option>
+                        <option value="Normal">Normal</option>
+                        <option value="Shared">Shared</option>
+                      </select>
+
+
+                    </div>
+                   
+                  </div>
+
+                  
+
+
+                  <div class="d-flex justify-content-end pt-3">                    
+                    <button type="submit" class="btn btn-warning btn-lg ms-2" >Submit form</button>
+                  </div>
+                </form>
+              </div>
+
+              <div class="card-body p-md-5 text-black" *ngIf="formSubmitted">
+                <h2>Form has been submit</h2>                      
+                
+                <table style="width:100%">
+            
+                  <tr *ngFor="let patientDetail of confirmPatientDetails">
+                    <td>{{patientDetail.name}} </td>
+                    <td>{{patientDetail.value}}</td>                      
+                  </tr>
+                  
+                 
+                </table>
+                
+            </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
